@@ -1,4 +1,4 @@
-name: leanix-action-test
+name: leanix-action-test-with-maven
 
 on:
   push:
