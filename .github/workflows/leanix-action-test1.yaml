@@ -15,21 +15,21 @@ env:
   ALLOW_FAILURE: true
 
 
-  jobs:
-    leanix_test_job:
-      runs-on: ubuntu-latest
-      steps:
-        - name: Checkout
-          uses: actions/checkout@v2
-        - name: LeanIX Value Stream Management
-          uses: leanix/github-actions-store-leanix-plugin@main
-          id: LIXVSM
-          with:
-            host: ${{ env.HOST }}
-            api-token: ${{ secrets.LEANIX_API_TOKEN }}
-            manifest-path: ${{ env.LEANIX_MANIFEST_PATH }}
-            dependency-manager: ${{ env.DEPENDENCY_MANAGER }}
-            maven-settings-path: ${{ env.SETTING_FILE }}
-            stage: ${{ env.STAGE }}
-            version: ${{ env.VERSION }}
-            allow-failure: ${{ env.ALLOW_FAILURE }}
+jobs:
+  leanix_test_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: LeanIX Value Stream Management
+        uses: leanix/github-actions-store-leanix-plugin@main
+        id: LIXVSM
+        with:
+          host: ${{ env.HOST }}
+          api-token: ${{ secrets.LEANIX_API_TOKEN }}
+          manifest-path: ${{ env.LEANIX_MANIFEST_PATH }}
+          dependency-manager: ${{ env.DEPENDENCY_MANAGER }}
+          maven-settings-path: ${{ env.SETTING_FILE }}
+          stage: ${{ env.STAGE }}
+          version: ${{ env.VERSION }}
+          allow-failure: ${{ env.ALLOW_FAILURE }}
